@@ -13,6 +13,11 @@
 <br>
 
 ---
+
+| ✅ [linux-basics-course](https://github.com/akashdip2001/linux-basics-course) |
+| --- |
+
+---
 ---
 # Add Kali Repositirie
 <h3> jast copy & past the code into your Terminal - Done ✔️  </h3>
