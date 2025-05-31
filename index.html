@@ -1,201 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kali Linux All Commands</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #1f1f1f;
-      --secondary: #282c34;
-      --accent: #61dafb;
-      --text: #f0f0f0;
-      --code-bg: #20232a;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: var(--primary);
-      color: var(--text);
-      padding: 1em;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4 {
-      color: var(--accent);
-    }
-
-    pre, code {
-      background: var(--code-bg);
-      padding: 0.5em;
-      border-radius: 5px;
-      font-family: 'Fira Code', monospace;
-      overflow-x: auto;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .img-right {
-      float: right;
-      max-width: 100%;
-      width: 300px;
-      margin: 1em;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1em;
-    }
-    th, td {
-      border: 1px solid #444;
-      padding: 0.5em;
-      text-align: left;
-    }
-
-    .section {
-      margin-top: 2em;
-      padding-top: 2em;
-      border-top: 2px solid #333;
-      animation: fadeIn 0.8s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @media screen and (max-width: 768px) {
-      .img-right {
-        float: none;
-        display: block;
-        margin: 1em auto;
-      }
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      td, th {
-        border: none;
-        padding: 0.5em;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali All Commands</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .header-img {
+            max-width: 100%;
+            height: auto;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        table {
+            margin-top: 20px;
+        }
+        .table thead {
+            background-color: #343a40;
+            color: #fff;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+        }
+        .social-icons img {
+            width: 40px;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
-  <img src="https://user-images.githubusercontent.com/81384987/206849634-955fcda0-a46b-4624-a5ad-fa4ffa1eef43.png" class="img-right" alt="Mechanical Engineering">
 
-  <h1>Kali Linux All Commands</h1>
-  <p>🔭 I’m currently working on <a href="https://akashdip2001.github.io/linktree/">my website</a></p>
+<div class="container">
+    <!-- Header Section -->
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <h1 class="animate__animated animate__fadeInLeft">Kali All Commands</h1>
+            <p class="lead">A comprehensive guide to essential Kali Linux commands.</p>
+            <p>🔭 I’m currently working on <a href="https://akashdip2001.github.io/linktree/" target="_blank">my website</a></p>
+        </div>
+        <div class="col-md-4 text-end">
+            <img src="https://user-images.githubusercontent.com/81384987/206849634-955fcda0-a46b-4624-a5ad-fa4ffa1eef43.png" alt="Mechanical Engineering" class="header-img animate__animated animate__fadeInRight">
+        </div>
+    </div>
 
-  <div class="section">
-    <h2>Add Kali Repository</h2>
+    <hr>
+
+    <!-- YouTube Channel -->
+    <div class="text-center my-4">
+        <a href="https://www.youtube.com/c/akashaot" target="_blank">
+            <img src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" alt="Akash AOT" width="50">
+            <span class="h5">My YouTube Channel</span>
+        </a>
+    </div>
+
+    <hr>
+
+    <!-- Linux Basics Course -->
+    <div class="text-center my-4">
+        <a href="https://github.com/akashdip2001/linux-basics-course" target="_blank" class="btn btn-dark">✅ Linux Basics Course</a>
+    </div>
+
+    <hr>
+
+    <!-- Kali Repositories -->
+    <h3>Add Kali Repository</h3>
+    <p>Just copy & paste the code into your Terminal - Done ✔️</p>
     <pre><code>echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list</code></pre>
-    <a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/">Official Website</a>
-  </div>
+    <p><a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/" target="_blank">Official Website</a></p>
 
-  <div class="section">
-    <h2>No Sound on Kali</h2>
+    <hr>
+
+    <!-- No Sound on Kali -->
+    <h3>No Sound on Kali</h3>
     <pre><code>sudo apt purge --autoremove pipewire-pulse</code></pre>
-    <a href="https://www.kali.org/docs/troubleshooting/no-sound/">Official Website</a>
-  </div>
+    <p><a href="https://www.kali.org/docs/troubleshooting/no-sound/" target="_blank">Official Website</a></p>
 
-  <div class="section">
-    <h2>Fix Broken Install</h2>
-    <pre><code>apt --fix-broken install</code></pre>
-  </div>
+    <hr>
 
-  <div class="section">
-    <h2>WiFi Connected but Not Working</h2>
-    <pre><code>sudo systemctl status systemd-resolved.service 
-sudo systemctl restart systemd-resolved.service</code></pre>
-  </div>
+    <!-- Fix Broken Installations -->
+    <h3>Fix Broken Installations</h3>
+    <pre><code>sudo apt --fix-broken install</code></pre>
 
-  <div class="section">
-    <h2>Turn ON Bluetooth</h2>
-    <pre><code>service bluetooth restart</code></pre>
-  </div>
+    <hr>
 
-  <div class="section">
-    <h2>Install Software in Kali</h2>
-    <pre><code>sudo dpkg -i *.deb
-./configure
-make install</code></pre>
-    <a href="https://youtu.be/fDod27oOZCM">Installation Guide Video</a>
-  </div>
+    <!-- WiFi Issues -->
+    <h3>WiFi Connected but Not Working</h3>
+    <pre><code>sudo systemctl status systemd-resolved.service
+sudo systemctl restart systemd-resolved.service
+sudo systemctl status systemd-resolved.service</code></pre>
 
-  <div class="section">
-    <h2>Snap Install</h2>
+    <hr>
+
+    <!-- Turn ON Bluetooth -->
+    <h3>Turn ON Bluetooth</h3>
+    <pre><code>sudo service bluetooth restart</code></pre>
+
+    <hr>
+
+    <!-- Install Software in Kali Linux -->
+    <h3>Install Software in Kali Linux</h3>
+    <pre><code>sudo dpkg -i *.deb                # Install .deb files
+./configure && make && sudo make install    # Compile and install from source</code></pre>
+    <p><a href="https://youtu.be/fDod27oOZCM" target="_blank">How to install all types of software in Kali Linux</a></p>
+
+    <hr>
+
+    <!-- Snap Install -->
+    <h3>Snap Install</h3>
     <pre><code>sudo apt update
 sudo apt install snapd
-systemctl enable --now snapd apparmor</code></pre>
-    <a href="https://youtu.be/P_qg4ujwypE">Snap Store Install Video</a>
-  </div>
+sudo systemctl enable --now snapd apparmor</code></pre>
+    <p>If Snap is installed but not working:</p>
+    <pre><code>sudo systemctl enable --now snapd.apparmor</code></pre>
+    <p><a href="https://youtu.be/P_qg4ujwypE" target="_blank">How to install Snap Store in Kali Linux</a></p>
 
-  <div class="section">
-    <h2>Uninstall Apps</h2>
-    <pre><code>sudo apt remove gimp
+    <hr>
+
+    <!-- Uninstall Software -->
+    <h3>Uninstall Software</h3>
+    <pre><code>dpkg --list
+sudo apt remove gimp
 sudo apt --purge remove gimp
-sudo apt autoremove
+sudo apt-get autoremove
+sudo apt purge --auto-remove gimp
 sudo apt clean</code></pre>
-  </div>
 
-  <div class="section">
-    <h2>Force Stop Running Program</h2>
+    <hr>
+
+    <!-- Force Stop Running Program -->
+    <h3>Force Stop Running Program</h3>
     <pre><code>pidof [appname]
-kill -9 [pid]</code></pre>
-  </div>
+kill -9 [PID]</code></pre>
 
-  <div class="section">
-    <h2>Delete File</h2>
-    <pre><code>rm [file]
-rm -r [folder]</code></pre>
-  </div>
+    <hr>
 
-  <div class="section">
-    <h2>Install Wine</h2>
-    <pre><code>sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt install wine wine64 wine32 winbind winetricks
-wine yoursetup.exe</code></pre>
-  </div>
+    <!-- Important Software Table -->
+    <h3>Important Software in Kali Linux</h3>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Work</th>
+                    <th>Normal Code</th>
+                    <th>Snap Code</th>
+                    <th>Flathub Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Office 365</td>
+                    <td>Microsoft Office</td>
+                    <td></td>
+                    <td>sudo snap install office365webdesktop --beta</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>WhatsApp</td>
+                    <td>Messaging App</td>
+                    <td></td>
+                    <td>sudo snap install whatsapp-for-linux</td>
+                    <td>flatpak install flathub com.github.eneshecan.WhatsAppForLinux</td>
+                </tr>
+                <tr>
+                    <td>Telegram</td>
+                    <td>Messaging App</td>
+                    <td></td>
+                    <td>sudo snap install telegram-desktop</td>
+                    <td>flatpak install flathub org.telegram.desktop</td>
+                </tr>
+                <tr>
+                    <td>Viber</td>
+                    <td>Messaging App</td>
+                    <td><a href="https://www.viber.com/en/download/" target="_blank">Download</a></td>
+                    <td>sudo snap install viber-unofficial</td>
+                    <td>flatpak install flathub com.viber.Viber</td>
+                </tr>
+                <tr>
+                    <td>FreeCAD</td>
+                    <td>Engineering Drawing</td>
+                    <td>sudo apt install freecad</td>
+                    <td>sudo snap install freecad</td>
+                    <td>flatpak install flathub org.freecadweb.FreeCAD</td>
+                </tr>
+                <tr>
+                    <td>Shotcut</td>
+                    <td>Video Editor</td>
+                    <td>sudo apt install shotcut</td>
+                    <td>sudo snap install shotcut --classic</td>
+                    <td><a href="https://flathub.org/apps/details/org.shotcut.Shotcut" target="_blank">Flathub Link</a></td>
+                </tr>
+                <tr>
+                    <td>GIMP</td>
+                    <td>Photo Editor</td>
+                    <td>sudo apt install gimp</td>
+                    <td>sudo snap install gimp</td>
+                    <td>flatpak install flathub org.gimp.GIMP</td>
+                </tr>
+                <tr>
+                    <td>Audacity</td>
+                    <td>Audio Editor</td>
+                    <td>sudo apt install audacity</td>
+                    <td>sudo snap install audacity</td>
+                    <td>flatpak install flathub org.audacityteam.Audacity</td>
+                </tr>
+                <tr>
+                    <td>HandBrake</td>
+                    <td>Video Compressor</td>
+                    <td>sudo apt install handbrake</td>
+                    <td>sudo snap install handbrake-jz</td>
+                    <td>flatpak install flathub fr.handbrake.ghb</td>
+                </tr>
+                <tr>
+                    <td>Code::Blocks</td>
+                    <td>IDE for C/C++</td>
+                    <td>sudo apt install codeblocks</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Blender</td>
+                    <td>3D Graphics</td> 
+                    <td>sudo apt install blender</td>
+                    <td>sudo snap install blender --classic</td>
+                    <td>flatpak install flathub org.blender.Blender</td>
+                </tr>
+                <tr>
+                    <td>OBS Studio</td>
+                    <td>Screen Recording</td>
+                    <td>sudo apt install obs-studio</td>
+                    <td>sudo snap install obs-studio</td>
+                    <td>flatpak install flathub com.obsproject.Studio</td>
+                </tr>
+                <tr>
+                    <td>VLC</td>
+                    <td>Media Player</td>
+                    <td>sudo apt install vlc</td>
+                    <td>sudo snap install vlc</td>
+                    <td>flatpak install flathub org.videolan.VLC</td>
+                </tr>
+                <tr>
+                    <td>Firefox</td>
+                    <td>Web Browser</td>
+                    <td>sudo apt install firefox-esr</td>
+                    <td>sudo snap install firefox</td>
+                    <td>flatpak install flathub org.mozilla.firefox</td>
+                </tr>
+                <tr>
+                    <td>Google Chrome</td>
+                    <td>Web Browser</td>
+                    <td>
+                        <a href="https://www.google.com/chrome/" target="_blank">Download .deb</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="section">
-    <h2>WSL - Kali in Windows</h2>
-    <pre><code>wsl --install
-wsl --update
-wsl --status
-wsl --list --online
-wsl --install -d kali-linux</code></pre>
-  </div>
+    <hr>
 
-  <div class="section">
-    <h2>Shutdown / Uninstall KEX</h2>
-    <pre><code>exit
-wsl --shutdown
-sudo apt purge kali-win-kex xfce4 xfce4-goodies
-sudo apt clean</code></pre>
-  </div>
+    <!-- Contact / Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Akash Dip. All rights reserved.</p>
+        <p>Connect with me:</p>
+        <div class="social-icons">
+            <a href="https://github.com/akashdip2001" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+            </a>
+            <a href="https://www.youtube.com/c/akashaot" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+            </a>
+            <a href="mailto:your-email@example.com">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+            </a>
+        </div>
+    </div>
+</div>
 
-  <footer class="section">
-    <h2>Connect with Me</h2>
-    <a href="https://linkedin.com/in/akashdip-mahapatra-330687204">
-      <img src="https://user-images.githubusercontent.com/81384987/209952833-314ab313-7120-4755-b65c-b573098387b3.png" alt="LinkedIn" width="40">
-    </a>
-    <a href="https://www.youtube.com/c/akash aot">
-      <img src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" alt="YouTube" width="50">
-    </a>
-    <a href="https://akashdip2001.github.io/linktree/">
-      <img src="https://yt3.ggpht.com/7tPHyFi7-QyTnhpc484ZzTuRp0fZSY-CUuykvzuKdKYIwt0fmw98SWMqwRy_7pZ6LQzEYJlvXA=s88-c-k-c0x00ffffff-no-rj-mo" alt="Website" width="40">
-    </a>
-    <p style="text-align:right;">AKASHDIP MAHAPATRA<br/><small>National Award - Drawing, 2012 by Pranab Mukherjee</small></p>
-  </footer>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
