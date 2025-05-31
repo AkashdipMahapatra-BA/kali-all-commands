@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kali Linux All Commands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1f1f1f;
+      --secondary: #282c34;
+      --accent: #61dafb;
+      --text: #f0f0f0;
+      --code-bg: #20232a;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--primary);
+      color: var(--text);
+      padding: 1em;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--accent);
+    }
+
+    pre, code {
+      background: var(--code-bg);
+      padding: 0.5em;
+      border-radius: 5px;
+      font-family: 'Fira Code', monospace;
+      overflow-x: auto;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .img-right {
+      float: right;
+      max-width: 100%;
+      width: 300px;
+      margin: 1em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1em;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 0.5em;
+      text-align: left;
+    }
+
+    .section {
+      margin-top: 2em;
+      padding-top: 2em;
+      border-top: 2px solid #333;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 768px) {
+      .img-right {
+        float: none;
+        display: block;
+        margin: 1em auto;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      td, th {
+        border: none;
+        padding: 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="https://user-images.githubusercontent.com/81384987/206849634-955fcda0-a46b-4624-a5ad-fa4ffa1eef43.png" class="img-right" alt="Mechanical Engineering">
+
+  <h1>Kali Linux All Commands</h1>
+  <p>🔭 I’m currently working on <a href="https://akashdip2001.github.io/linktree/">my website</a></p>
+
+  <div class="section">
+    <h2>Add Kali Repository</h2>
+    <pre><code>echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list</code></pre>
+    <a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/">Official Website</a>
+  </div>
+
+  <div class="section">
+    <h2>No Sound on Kali</h2>
+    <pre><code>sudo apt purge --autoremove pipewire-pulse</code></pre>
+    <a href="https://www.kali.org/docs/troubleshooting/no-sound/">Official Website</a>
+  </div>
+
+  <div class="section">
+    <h2>Fix Broken Install</h2>
+    <pre><code>apt --fix-broken install</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>WiFi Connected but Not Working</h2>
+    <pre><code>sudo systemctl status systemd-resolved.service 
+sudo systemctl restart systemd-resolved.service</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Turn ON Bluetooth</h2>
+    <pre><code>service bluetooth restart</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Install Software in Kali</h2>
+    <pre><code>sudo dpkg -i *.deb
+./configure
+make install</code></pre>
+    <a href="https://youtu.be/fDod27oOZCM">Installation Guide Video</a>
+  </div>
+
+  <div class="section">
+    <h2>Snap Install</h2>
+    <pre><code>sudo apt update
+sudo apt install snapd
+systemctl enable --now snapd apparmor</code></pre>
+    <a href="https://youtu.be/P_qg4ujwypE">Snap Store Install Video</a>
+  </div>
+
+  <div class="section">
+    <h2>Uninstall Apps</h2>
+    <pre><code>sudo apt remove gimp
+sudo apt --purge remove gimp
+sudo apt autoremove
+sudo apt clean</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Force Stop Running Program</h2>
+    <pre><code>pidof [appname]
+kill -9 [pid]</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Delete File</h2>
+    <pre><code>rm [file]
+rm -r [folder]</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Install Wine</h2>
+    <pre><code>sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install wine wine64 wine32 winbind winetricks
+wine yoursetup.exe</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>WSL - Kali in Windows</h2>
+    <pre><code>wsl --install
+wsl --update
+wsl --status
+wsl --list --online
+wsl --install -d kali-linux</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Shutdown / Uninstall KEX</h2>
+    <pre><code>exit
+wsl --shutdown
+sudo apt purge kali-win-kex xfce4 xfce4-goodies
+sudo apt clean</code></pre>
+  </div>
+
+  <footer class="section">
+    <h2>Connect with Me</h2>
+    <a href="https://linkedin.com/in/akashdip-mahapatra-330687204">
+      <img src="https://user-images.githubusercontent.com/81384987/209952833-314ab313-7120-4755-b65c-b573098387b3.png" alt="LinkedIn" width="40">
+    </a>
+    <a href="https://www.youtube.com/c/akash aot">
+      <img src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" alt="YouTube" width="50">
+    </a>
+    <a href="https://akashdip2001.github.io/linktree/">
+      <img src="https://yt3.ggpht.com/7tPHyFi7-QyTnhpc484ZzTuRp0fZSY-CUuykvzuKdKYIwt0fmw98SWMqwRy_7pZ6LQzEYJlvXA=s88-c-k-c0x00ffffff-no-rj-mo" alt="Website" width="40">
+    </a>
+    <p style="text-align:right;">AKASHDIP MAHAPATRA<br/><small>National Award - Drawing, 2012 by Pranab Mukherjee</small></p>
+  </footer>
+</body>
+</html>
