@@ -4,7 +4,7 @@
 
 <br>
 
-- 🔭 I’m currently working on [**my web-site**](https://akashdip2001.github.io/linktree/)
+- 🔭 I'm currently working on [**my web-site**](https://akashdip2001.github.io/linktree/)
 
 <br>
 <br>
@@ -18,7 +18,28 @@
 | --- |
 
 ---
+
+## 📋 Index
+
+| # | Topic |
+|---|-------|
+| 1 | [Add Kali Repository](#add-kali-repositirie) |
+| 2 | [No Sound on Kali](#no-sound-on-kali) |
+| 3 | [Fix Broken Installation](#any-previous-installation-not-successfully-completed) |
+| 4 | [WIFI Connect but Not Working](#wifi-connect-but-not-working) |
+| 5 | [Turn ON Bluetooth](#turn-on-bluetooth) |
+| 6 | [Install Software in KALI](#install-softwers-in-kali-linux----) |
+| 7 | [Snap Install](#snap-install) |
+| 8 | [Uninstall Software](#uninstall----) |
+| 9 | [Force STOP Running Program](#force-stop-any-running-program) |
+| 10 | [All Important Software Table](#all-imp-softwers-in-kali-and-all-tools) |
+| 11 | [Delete File](#delet-file----) |
+| 12 | [Install Wine](#install-wine----windows-emulator-for-linux) |
+| 13 | [WSL 2 — Kali in Windows](#wsl-2--kali-in-windows) |
+
 ---
+---
+
 # Add Kali Repositirie
 <h3> jast copy & past the code into your Terminal - Done ✔️  </h3>
 
@@ -144,16 +165,16 @@ wine xxxxxx.exe
 ```
 <img src="https://github.com/akashdip2001/college-final-year-project/raw/main/img/colour_line.png">
 
-[<img align="right" alt="Mechanical Engineering" width="400" src="img/wsl.jpg">](https://youtu.be/JQDbcyRa5_0)
+---
 
-## WAL 2 [Video](https://youtube.com/playlist?list=PL_RecMEcs_p-iAMEQascgKVMt4juhGip2&si=nzpb4GEv-QxkROI6) <a name="wsl"></a>
-### Kali in Windows
+## WSL 2 — Kali in Windows
+
+[<img align="right" alt="WSL" width="400" src="img/wsl.jpg">](https://youtu.be/JQDbcyRa5_0)
+
+▶️ [Video Playlist](https://youtube.com/playlist?list=PL_RecMEcs_p-iAMEQascgKVMt4juhGip2&si=nzpb4GEv-QxkROI6)
 
 ```go
-// Windows PowerShell
-// Copyright (C) Microsoft Corporation. All rights reserved.
-// PS C:\WINDOWS\system32> wsl --status
-
+// Windows PowerShell (run as Administrator)
 wsl --install
 wsl --update
 wsl --status
@@ -262,7 +283,6 @@ wsl
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
-
 
 <a href="https://linkedin.com/in/akashdip-mahapatra-330687204" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81384987/209952833-314ab313-7120-4755-b65c-b573098387b3.png" alt="akashdip-mahapatra-330687204" height="40" width="40" /></a>
 <a href="https://www.youtube.com/c/akash aot" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" alt="akash aot" height="35" width="50" /></a>

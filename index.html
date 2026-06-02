@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali All Commands</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ── Theme variables ── */
+        [data-theme="dark"] {
+            --bg:       #0f0f23;
+            --surface:  #1a1a2e;
+            --border:   #2a2a4a;
+            --text:     #e0e0e0;
+            --muted:    #8b8b9e;
+            --code-bg:  #0d1117;
+            --code-fg:  #c9d1d9;
+            --code-bd:  #30363d;
+            --link:     #58a6ff;
+            --accent:   #d32f2f;
+            --badge-bg: #2a2a4a;
+            --badge-fg: #ccc;
+            --tbl-hover:#1e1e3a;
+            --tbl-head: #1a1a2e;
+            --btn-toggle: #ffc107;
+            --btn-toggle-text: #000;
+        }
+        [data-theme="light"] {
+            --bg:       #f5f5f5;
+            --surface:  #ffffff;
+            --border:   #dee2e6;
+            --text:     #212529;
+            --muted:    #6c757d;
+            --code-bg:  #f6f8fa;
+            --code-fg:  #24292e;
+            --code-bd:  #d0d7de;
+            --link:     #0969da;
+            --accent:   #c0392b;
+            --badge-bg: #e9ecef;
+            --badge-fg: #495057;
+            --tbl-hover:#f1f3f5;
+            --tbl-head: #343a40;
+            --btn-toggle: #343a40;
+            --btn-toggle-text: #fff;
+        }
+
+        /* ── Base ── */
+        *, *::before, *::after { transition: background-color .25s, color .2s, border-color .2s; }
+        body        { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding-top: 56px; }
+        h1, h2, h3  { color: var(--text); }
+        a           { color: var(--link); }
+        a:hover     { color: var(--accent); }
+        hr          { border-color: var(--border); opacity: 1; }
+
+        /* ── Navbar ── */
+        .navbar               { background: var(--surface) !important; border-bottom: 2px solid var(--accent); }
+        .navbar-brand         { color: var(--accent) !important; font-weight: 700; }
+        .nav-link             { color: var(--muted) !important; font-size: .82rem; padding: .3rem .55rem !important; }
+        .nav-link:hover       { color: var(--accent) !important; }
+
+        /* ── Theme toggle button ── */
+        #themeToggle {
+            background: var(--btn-toggle);
+            color: var(--btn-toggle-text);
+            border: none;
+            border-radius: 20px;
+            padding: .25rem .85rem;
+            font-size: .82rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* ── Sections ── */
+        .section    { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+        h2          { color: var(--accent); border-left: 4px solid var(--accent); padding-left: .6rem; }
+
+        /* ── Code blocks ── */
+        pre {
+            background: var(--code-bg);
+            color: var(--code-fg);
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid var(--code-bd);
+            font-size: .875rem;
+        }
+
+        /* ── Quick index card ── */
+        .index-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .index-card a {
+            display: inline-block;
+            margin: .2rem .3rem;
+            padding: .2rem .65rem;
+            background: var(--badge-bg);
+            border-radius: 4px;
+            font-size: .82rem;
+            text-decoration: none;
+            color: var(--badge-fg);
+        }
+        .index-card a:hover { background: var(--accent); color: #fff; }
+
+        /* ── Table ── */
+        .table             { color: var(--text); font-size: .83rem; }
+        .table thead       { background: var(--tbl-head); color: #fff; }
+        .table tbody tr:hover { background: var(--tbl-hover); }
+        .table td, .table th { border-color: var(--border); }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--surface);
+            color: var(--muted);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-top: 2px solid var(--accent);
+        }
+        footer a   { color: var(--muted); margin: 0 .4rem; }
+        footer img { width: 34px; }
+
+        @media (max-width: 576px) {
+            pre       { font-size: .78rem; }
+            .table    { font-size: .72rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Sticky Navbar ── -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">⚔️ Kali Commands</a>
+        <div class="d-flex align-items-center gap-2 ms-auto">
+            <button id="themeToggle" onclick="toggleTheme()">☀️ Light</button>
+            <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navIndex" style="color:var(--text)">☰</button>
+        </div>
+        <div class="collapse navbar-collapse" id="navIndex">
+            <ul class="navbar-nav flex-wrap ms-auto mt-2 mt-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#repo">#1 Repo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sound">#2 Sound</a></li>
+                <li class="nav-item"><a class="nav-link" href="#broken">#3 Fix</a></li>
+                <li class="nav-item"><a class="nav-link" href="#wifi">#4 WiFi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bluetooth">#5 BT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#install">#6 Install</a></li>
+                <li class="nav-item"><a class="nav-link" href="#snap">#7 Snap</a></li>
+                <li class="nav-item"><a class="nav-link" href="#uninstall">#8 Uninstall</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kill">#9 Kill</a></li>
+                <li class="nav-item"><a class="nav-link" href="#software">#10 SW</a></li>
+                <li class="nav-item"><a class="nav-link" href="#delete">#11 Del</a></li>
+                <li class="nav-item"><a class="nav-link" href="#wine">#12 Wine</a></li>
+                <li class="nav-item"><a class="nav-link" href="#wsl">#13 WSL</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Hero -->
+    <div class="row align-items-center py-4">
+        <div class="col-md-7">
+            <h1>Kali Linux — All Commands</h1>
+            <p style="color:var(--muted)">Personal reference for Kali commands, installs &amp; WSL setup.</p>
+            <p>🔭 <a href="https://akashdip2001.github.io/linktree/" target="_blank">my website</a> &nbsp;|&nbsp;
+               <a href="https://github.com/akashdip2001/linux-basics-course" target="_blank">✅ linux-basics-course</a></p>
+            <a href="https://www.youtube.com/c/akashaot" target="_blank">
+                <img src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" width="30" alt="yt">
+                My YouTube Channel
+            </a>
+        </div>
+        <div class="col-md-5 text-center mt-3 mt-md-0">
+            <img src="https://user-images.githubusercontent.com/81384987/206849634-955fcda0-a46b-4624-a5ad-fa4ffa1eef43.png"
+                 alt="Kali Linux" style="max-width:280px;width:100%">
+        </div>
+    </div>
+
+    <!-- Quick Index -->
+    <div class="index-card">
+        <strong style="color:var(--accent)">📋 Quick Index</strong><br>
+        <a href="#repo">#1 Repository</a><a href="#sound">#2 No Sound</a><a href="#broken">#3 Fix Broken</a>
+        <a href="#wifi">#4 WiFi</a><a href="#bluetooth">#5 Bluetooth</a><a href="#install">#6 Install SW</a>
+        <a href="#snap">#7 Snap</a><a href="#uninstall">#8 Uninstall</a><a href="#kill">#9 Force Stop</a>
+        <a href="#software">#10 Software Table</a><a href="#delete">#11 Delete File</a>
+        <a href="#wine">#12 Wine</a><a href="#wsl">#13 WSL 2</a>
+    </div>
+
+    <!-- #1 Repository -->
+    <div class="section" id="repo">
+        <h2>#1 Add Kali Repository</h2>
+        <p>Just copy &amp; paste into your Terminal — Done ✔️</p>
+        <pre>echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list</pre>
+        <a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/" target="_blank">Official Website →</a>
+    </div>
+
+    <!-- #2 No Sound -->
+    <div class="section" id="sound">
+        <h2>#2 No Sound on Kali</h2>
+        <pre>sudo apt purge --autoremove pipewire-pulse</pre>
+        <a href="https://www.kali.org/docs/troubleshooting/no-sound/" target="_blank">Official Website →</a>
+    </div>
+
+    <!-- #3 Fix Broken -->
+    <div class="section" id="broken">
+        <h2>#3 Fix Broken Installation</h2>
+        <pre>apt --fix-broken install</pre>
+    </div>
+
+    <!-- #4 WiFi -->
+    <div class="section" id="wifi">
+        <h2>#4 WiFi Connected but Not Working</h2>
+        <pre>sudo systemctl status systemd-resolved.service
+sudo systemctl restart systemd-resolved.service
+sudo systemctl status systemd-resolved.service</pre>
+    </div>
+
+    <!-- #5 Bluetooth -->
+    <div class="section" id="bluetooth">
+        <h2>#5 Turn ON Bluetooth</h2>
+        <pre>service bluetooth restart</pre>
+    </div>
+
+    <!-- #6 Install -->
+    <div class="section" id="install">
+        <h2>#6 Install Software in KALI Linux</h2>
+        <pre>sudo dpkg -i *.deb                 # normal .deb file
+./configure  ---  make install     # compile from source</pre>
+        <a href="https://youtu.be/fDod27oOZCM" target="_blank">How to install all types of software in KALI →</a>
+    </div>
+
+    <!-- #7 Snap -->
+    <div class="section" id="snap">
+        <h2>#7 Snap Install</h2>
+        <pre>sudo su
+sudo apt update
+sudo apt install snapd
+systemctl enable --now snapd apparmor</pre>
+        <p style="color:var(--muted)">Snap installed but not working?</p>
+        <pre>systemctl enable --now snapd.apparmor</pre>
+        <a href="https://youtu.be/P_qg4ujwypE" target="_blank">How to install Snap Store in KALI →</a>
+    </div>
+
+    <!-- #8 Uninstall -->
+    <div class="section" id="uninstall">
+        <h2>#8 Uninstall Software</h2>
+        <pre>dpkg --list
+sudo apt remove gimp
+sudo apt --purge remove gimp
+sudo apt-get autoremove
+sudo apt purge --auto-remove gimp
+sudo apt clean</pre>
+    </div>
+
+    <!-- #9 Force Stop -->
+    <div class="section" id="kill">
+        <h2>#9 Force STOP any Running Program</h2>
+        <pre>pidof [appname]
+kill -9 [PID]</pre>
+    </div>
+
+    <!-- #10 Software Table -->
+    <div class="section" id="software">
+        <h2>#10 All Important Software in KALI</h2>
+        <p><a href="https://www.kali.org/tools/all-tools/" target="_blank">All Kali Tools →</a></p>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr><th>Name</th><th>Work</th><th>apt install</th><th>snap install</th><th>flatpak install</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="5" class="text-center small" style="color:var(--muted)">
+                        Prerequisites: <a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/" target="_blank">Add Kali Repo</a> &nbsp;|&nbsp;
+                        <a href="https://snapcraft.io/docs/installing-snapd" target="_blank">Install Snap</a> &nbsp;|&nbsp;
+                        <a href="https://flatpak.org/setup/" target="_blank">Setup Flathub</a>
+                    </td></tr>
+                    <tr><td>Office 365</td><td>Microsoft Office</td><td></td><td>sudo snap install office365webdesktop --beta</td><td></td></tr>
+                    <tr><td>WhatsApp</td><td>Messaging</td><td></td><td>sudo snap install whatsapp-for-linux</td><td>flatpak install flathub com.github.eneshecan.WhatsAppForLinux</td></tr>
+                    <tr><td>Telegram</td><td>Messaging</td><td></td><td>sudo snap install telegram-desktop</td><td>flatpak install flathub org.telegram.desktop</td></tr>
+                    <tr><td>Viber</td><td>Messaging</td><td><a href="https://www.viber.com/en/download/" target="_blank">Download .deb</a></td><td>sudo snap install viber-unofficial</td><td>flatpak install flathub com.viber.Viber</td></tr>
+                    <tr><td>Google Messages</td><td>Messaging</td><td><a href="https://messages.google.com/web" target="_blank">Web App</a></td><td></td><td></td></tr>
+                    <tr><td>KDE Connect</td><td>File Transfer</td><td>sudo apt install kdeconnect</td><td></td><td></td></tr>
+                    <tr><td>FreeCAD</td><td>Engineering Drawing</td><td>sudo apt install freecad</td><td>sudo snap install freecad</td><td>flatpak install flathub org.freecadweb.FreeCAD</td></tr>
+                    <tr><td>Shotcut</td><td>Video Editor</td><td>sudo apt install shotcut</td><td>sudo snap install shotcut --classic</td><td>flatpak install flathub org.shotcut.Shotcut</td></tr>
+                    <tr><td>GIMP</td><td>Photo Editor</td><td>sudo apt install gimp</td><td>sudo snap install gimp</td><td>flatpak install flathub org.gimp.GIMP</td></tr>
+                    <tr><td>SimpleScreenRecorder</td><td>Screen Recorder</td><td>sudo apt install simplescreenrecorder</td><td></td><td></td></tr>
+                    <tr><td>Audacity</td><td>Audio Editor</td><td>sudo apt install audacity</td><td>sudo snap install audacity</td><td></td></tr>
+                    <tr><td>HandBrake</td><td>Video Compressor</td><td>sudo apt install handbrake</td><td>sudo snap install handbrake-jz</td><td>flatpak install flathub fr.handbrake.ghb</td></tr>
+                    <tr><td>Code::Blocks</td><td>Coding IDE</td><td>sudo apt install codeblocks</td><td></td><td></td></tr>
+                    <tr><td>Blender</td><td>3D / Graphic Design</td><td>sudo apt install blender</td><td>sudo snap install blender --classic</td><td>flatpak install flathub org.blender.Blender</td></tr>
+                    <tr><td>kTouch</td><td>Typing Practice</td><td>sudo apt install ktouch</td><td></td><td></td></tr>
+                    <tr><td>VirtualBox</td><td>Virtualization</td><td>sudo apt install virtualbox</td><td></td><td></td></tr>
+                    <tr><td>Terminator</td><td>Terminal Emulator</td><td>sudo apt install terminator</td><td></td><td></td></tr>
+                    <tr><td>MS Edge</td><td>Browser</td><td><a href="https://www.microsoft.com/en-us/edge" target="_blank">Download .deb</a></td><td></td><td></td></tr>
+                    <tr><td>Audacious</td><td>MP3 Player</td><td>sudo apt install audacious</td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- #11 Delete -->
+    <div class="section" id="delete">
+        <h2>#11 Delete File</h2>
+        <pre>rm [file path]    # empty file / file
+rm -r [dir]       # directory</pre>
+    </div>
+
+    <!-- #12 Wine -->
+    <div class="section" id="wine">
+        <h2>#12 Install Wine (Windows emulator for Linux)</h2>
+        <pre>sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install wine wine64 wine32 winbind winetricks
+wine yourapp.exe</pre>
+    </div>
+
+    <!-- #13 WSL 2 -->
+    <div class="section" id="wsl">
+        <h2>#13 WSL 2 — Kali in Windows</h2>
+        <div class="row align-items-start">
+            <div class="col-md-8">
+                <p><a href="https://youtube.com/playlist?list=PL_RecMEcs_p-iAMEQascgKVMt4juhGip2" target="_blank">▶️ Video Playlist</a></p>
+                <h3>Setup (PowerShell as Admin)</h3>
+                <pre>wsl --install
+wsl --update
+wsl --status
+wsl --list --online
+wsl --install -d kali-linux</pre>
+                <h3>Navigate Windows files from Kali</h3>
+                <pre>ls /mnt          # c  d  e  wsl  wslg
+cd /mnt/c/Users/akash/Desktop</pre>
+                <p>
+                    <a href="./wsl-in-windows.md">WSL more details</a> &nbsp;|&nbsp;
+                    <a href="./permissions.md">File permissions</a>
+                </p>
+            </div>
+            <div class="col-md-4 mt-3 mt-md-0">
+                <a href="https://youtu.be/JQDbcyRa5_0" target="_blank">
+                    <img src="img/wsl.jpg" class="img-fluid rounded" alt="WSL">
+                </a>
+            </div>
+        </div>
+
+        <h3 class="mt-4">Check Kali Version</h3>
+        <pre>cat /etc/os-release
+# PRETTY_NAME="Kali GNU/Linux Rolling"
+# VERSION_ID="2024.3"</pre>
+
+        <h3>Install mini Desktop with kex server <span class="badge bg-danger">Not Recommended</span></h3>
+        <pre>sudo apt update && sudo apt upgrade -y
+sudo apt install kali-win-kex
+kex --win -s
+kex --esm --ip -s   # for Windows Remote Desktop</pre>
+        <div class="row my-3">
+            <div class="col-sm-6"><img src="img/wsl remote desktop connect (1).png" class="img-fluid rounded mb-2" alt="WSL RDP 1"></div>
+            <div class="col-sm-6"><img src="img/wsl remote desktop connect.png" class="img-fluid rounded mb-2" alt="WSL RDP"></div>
+        </div>
+
+        <h3>Shut Down</h3>
+        <pre>exit
+wsl --shutdown</pre>
+
+        <h3>Uninstall kex</h3>
+        <pre>sudo apt purge kali-win-kex xfce4 xfce4-goodies lightdm light-locker
+sudo apt autoremove --purge && sudo apt clean</pre>
+
+        <h3>Install Full Desktop — GNOME <span class="badge bg-success">Recommended</span></h3>
+        <pre>sudo apt update
+sudo apt install kali-desktop-gnome gdm3
+sudo update-alternatives --config x-session-manager
+wsl --shutdown && wsl</pre>
+
+        <div class="mt-3">
+            <img src="img/wsl remote desktop connect (3).png" class="img-fluid rounded mb-2" alt="WSL connect 3">
+            <img src="img/kali in windows.png" class="img-fluid rounded" alt="Kali in Windows">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="row my-4">
+        <div class="col-6">
+            <a href="https://akashdip2001.github.io/ubuntu-all-commaands/" class="btn btn-outline-secondary w-100">« Ubuntu</a>
+        </div>
+        <div class="col-6">
+            <a href="https://akashdip2001.github.io/fedora-all-imp-commands/" class="btn btn-outline-secondary w-100">Fedora »</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <h5>AKASHDIP MAHAPATRA</h5>
+    <p class="small">National award from Delhi — taken from Indian President Pranab Mukherjee 2012, Drawing</p>
+    <div class="mb-2">
+        <a href="https://linkedin.com/in/akashdip-mahapatra-330687204" target="_blank">
+            <img src="https://user-images.githubusercontent.com/81384987/209952833-314ab313-7120-4755-b65c-b573098387b3.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.youtube.com/c/akashaot" target="_blank">
+            <img src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" alt="YouTube">
+        </a>
+        <a href="https://akashdip2001.github.io/linktree/" target="_blank">
+            <img src="https://yt3.ggpht.com/7tPHyFi7-QyTnhpc484ZzTuRp0fZSY-CUuykvzuKdKYIwt0fmw98SWMqwRy_7pZ6LQzEYJlvXA=s88-c-k-c0x00ffffff-no-rj-mo" alt="Website">
+        </a>
+    </div>
+    <p class="small">✔️ <a href="https://akashdip2001.github.io/linktree/">my Website</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const html = document.documentElement;
+    const btn  = document.getElementById('themeToggle');
+
+    // Restore saved preference (default = dark)
+    const saved = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    btn.textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark';
+
+    function toggleTheme() {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        const next   = isDark ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        btn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+        localStorage.setItem('theme', next);
+    }
+</script>
+</body>
+</html>
