@@ -107,6 +107,39 @@
         .kbtn:hover { box-shadow: 0 4px 20px rgba(209,47,47,.55); letter-spacing: 1px; text-decoration: none; }
         .kbtn:hover::after { left: 120%; }
 
+        /* ── Hero links ── */
+        .hero-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+        .hero-chip {
+            display: inline-flex; align-items: center; gap: .3rem;
+            padding: .4rem 1rem;
+            font-size: .85rem; font-weight: 500;
+            text-decoration: none;
+            color: var(--text) !important;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            transition: all .3s ease;
+        }
+        .hero-chip:hover {
+            border-color: var(--link);
+            background: var(--badge-bg);
+            box-shadow: 0 2px 12px rgba(88,166,255,.2);
+            transform: translateY(-1px);
+        }
+        .hero-chip.yt-chip:hover {
+            border-color: #ff0000;
+            box-shadow: 0 2px 12px rgba(255,0,0,.2);
+        }
+
+        /* ── Hero image dark mode glow ── */
+        .hero-img {
+            max-width: 280px; width: 100%;
+            transition: filter .3s ease, drop-shadow .3s ease;
+        }
+        [data-theme="dark"] .hero-img {
+            filter: brightness(1.3) drop-shadow(0 0 12px rgba(88,166,255,.35));
+        }
+
         /* ── Sections ── */
         .section    { padding: 2rem 0; border-bottom: 1px solid var(--border); }
         h2          { color: var(--accent); border-left: 4px solid var(--accent); padding-left: .6rem; }
@@ -224,20 +257,20 @@
         </div>
         <div class="collapse navbar-collapse" id="navIndex">
             <ul class="navbar-nav flex-wrap ms-auto mt-2 mt-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#repo">#1 Repo</a></li>
-                <li class="nav-item"><a class="nav-link" href="#sound">#2 Sound</a></li>
-                <li class="nav-item"><a class="nav-link" href="#broken">#3 Fix</a></li>
-                <li class="nav-item"><a class="nav-link" href="#wifi">#4 WiFi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bluetooth">#5 BT</a></li>
-                <li class="nav-item"><a class="nav-link" href="#install">#6 Install</a></li>
-                <li class="nav-item"><a class="nav-link" href="#snap">#7 Snap</a></li>
-                <li class="nav-item"><a class="nav-link" href="#uninstall">#8 Uninstall</a></li>
-                <li class="nav-item"><a class="nav-link" href="#kill">#9 Kill</a></li>
-                <li class="nav-item"><a class="nav-link" href="#software">#10 SW</a></li>
-                <li class="nav-item"><a class="nav-link" href="#delete">#11 Del</a></li>
-                <li class="nav-item"><a class="nav-link" href="#wine">#12 Wine</a></li>
+                <li class="nav-item"><a class="nav-link" href="#repo">1. Repo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sound">2. Sound</a></li>
+                <li class="nav-item"><a class="nav-link" href="#broken">3. Fix</a></li>
+                <li class="nav-item"><a class="nav-link" href="#wifi">4. WiFi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bluetooth">5. BT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#install">6. Install</a></li>
+                <li class="nav-item"><a class="nav-link" href="#snap">7. Snap</a></li>
+                <li class="nav-item"><a class="nav-link" href="#uninstall">8. Uninstall</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kill">9. Kill</a></li>
+                <li class="nav-item"><a class="nav-link" href="#software">10. SW</a></li>
+                <li class="nav-item"><a class="nav-link" href="#delete">11. Del</a></li>
+                <li class="nav-item"><a class="nav-link" href="#wine">12. Wine</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">#13 WSL</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">13. WSL</a>
                     <ul class="dropdown-menu" style="background:var(--surface);border-color:var(--border)">
                         <li><a class="dropdown-item" href="#wsl" style="color:var(--text)">WSL Setup</a></li>
                         <li><a class="dropdown-item" href="#wsl-pass" style="color:var(--text)">Password Reset</a></li>
@@ -256,16 +289,15 @@
         <div class="col-md-7">
             <h1>Kali Linux — All Commands</h1>
             <p style="color:var(--muted)">Personal reference for Kali commands, installs &amp; WSL setup.</p>
-            <p>🔭 <a href="https://akashdip2001.github.io/linktree/" target="_blank">my website</a> &nbsp;|&nbsp;
-               <a href="https://github.com/akashdip2001/linux-basics-course" target="_blank">✅ linux-basics-course</a></p>
-            <a href="https://www.youtube.com/c/akashaot" target="_blank">
-                <img src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" width="30" alt="yt">
-                My YouTube Channel
-            </a>
+            <div class="hero-links">
+                <a href="https://akashdip2001.github.io/linktree/" target="_blank" class="hero-chip">🔭 My Website</a>
+                <a href="https://github.com/akashdip2001/linux-basics-course" target="_blank" class="hero-chip">✅ linux-basics-course</a>
+                <a href="https://www.youtube.com/c/akashaot" target="_blank" class="hero-chip yt-chip">▶️ YouTube Channel</a>
+            </div>
         </div>
         <div class="col-md-5 text-center mt-3 mt-md-0">
             <img src="https://user-images.githubusercontent.com/81384987/206849634-955fcda0-a46b-4624-a5ad-fa4ffa1eef43.png"
-                 alt="Kali Linux" style="max-width:280px;width:100%">
+                 alt="Kali Linux" class="hero-img">
         </div>
     </div>
 
