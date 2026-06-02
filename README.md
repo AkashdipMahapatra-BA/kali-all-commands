@@ -36,6 +36,9 @@
 | 11 | [Delete File](#delet-file----) |
 | 12 | [Install Wine](#install-wine----windows-emulator-for-linux) |
 | 13 | [WSL 2 — Kali in Windows](#wsl-2--kali-in-windows) |
+| ↳ | [13.1 Setup](#wsl-2--kali-in-windows) |
+| ↳ | [13.2 Reset WSL Password](#132-reset-wsl-password) |
+| ↳ | [13.3 Desktop Environment](#133-install-desktop-environment) |
 
 ---
 ---
@@ -173,8 +176,9 @@ wine xxxxxx.exe
 
 ▶️ [Video Playlist](https://youtube.com/playlist?list=PL_RecMEcs_p-iAMEQascgKVMt4juhGip2&si=nzpb4GEv-QxkROI6)
 
+### 13.1 Setup (Windows PowerShell as Admin)
+
 ```go
-// Windows PowerShell (run as Administrator)
 wsl --install
 wsl --update
 wsl --status
@@ -212,15 +216,34 @@ cat /etc/os-release
 // PRETTY_NAME="Kali GNU/Linux Rolling"
 // NAME="Kali GNU/Linux"
 // VERSION_ID="2024.3"
-// VERSION="2024.3"
-// VERSION_CODENAME=kali-rolling
-// ID=kali
-// ID_LIKE=debian
-// HOME_URL="https://www.kali.org/"
-// SUPPORT_URL="https://forums.kali.org/"
-// BUG_REPORT_URL="https://bugs.kali.org/"
-// ANSI_COLOR="1;31"
 ```
+
+---
+
+### 13.2 Reset WSL Password
+
+Forgot your WSL user password? Reset it from Windows CMD using root.
+
+```bash
+# Step 1 — Open Windows CMD and set distro to login as root
+ubuntu2204 config --default-user root
+# (replace ubuntu2204 with your distro name e.g. kali-linux)
+
+# Step 2 — Root WSL shell opens. Reset the password:
+passwd <your-username>
+# e.g.: passwd ak2001
+# Enter new password when prompted
+
+# Step 3 — Restore your normal user as default
+ubuntu2204 config --default-user <your-username>
+```
+
+<img src="img/wsl pass reset.jpg">
+
+---
+
+### 13.3 Install Desktop Environment
+
 ## Install `mini` Desktop envirorment with `kex server` (❌ not Recommended ❌)
 ```
 sudo apt update && sudo apt upgrade -y

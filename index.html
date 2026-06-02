@@ -192,7 +192,14 @@
                 <li class="nav-item"><a class="nav-link" href="#software">#10 SW</a></li>
                 <li class="nav-item"><a class="nav-link" href="#delete">#11 Del</a></li>
                 <li class="nav-item"><a class="nav-link" href="#wine">#12 Wine</a></li>
-                <li class="nav-item"><a class="nav-link" href="#wsl">#13 WSL</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">#13 WSL</a>
+                    <ul class="dropdown-menu" style="background:var(--surface);border-color:var(--border)">
+                        <li><a class="dropdown-item" href="#wsl" style="color:var(--text)">WSL Setup</a></li>
+                        <li><a class="dropdown-item" href="#wsl-pass" style="color:var(--text)">Password Reset</a></li>
+                        <li><a class="dropdown-item" href="#wsl-desktop" style="color:var(--text)">Desktop ENV</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -225,7 +232,11 @@
         <a href="#wifi">#4 WiFi</a><a href="#bluetooth">#5 Bluetooth</a><a href="#install">#6 Install SW</a>
         <a href="#snap">#7 Snap</a><a href="#uninstall">#8 Uninstall</a><a href="#kill">#9 Force Stop</a>
         <a href="#software">#10 Software Table</a><a href="#delete">#11 Delete File</a>
-        <a href="#wine">#12 Wine</a><a href="#wsl">#13 WSL 2</a>
+        <a href="#wine">#12 Wine</a>
+        <span style="color:var(--accent);font-weight:600">#13 WSL 2:</span>
+        <a href="#wsl">↳ Setup</a>
+        <a href="#wsl-pass">↳ Password Reset</a>
+        <a href="#wsl-desktop">↳ Desktop ENV</a>
     </div>
 
     <!-- #1 Repository -->
@@ -362,7 +373,7 @@ wine yourapp.exe</pre>
         <div class="row align-items-start">
             <div class="col-md-8">
                 <p><a href="https://youtube.com/playlist?list=PL_RecMEcs_p-iAMEQascgKVMt4juhGip2" target="_blank">▶️ Video Playlist</a></p>
-                <h3>Setup (PowerShell as Admin)</h3>
+                <h3>13.1 Setup (PowerShell as Admin)</h3>
                 <pre>wsl --install
 wsl --update
 wsl --status
@@ -388,33 +399,55 @@ cd /mnt/c/Users/akash/Desktop</pre>
 # PRETTY_NAME="Kali GNU/Linux Rolling"
 # VERSION_ID="2024.3"</pre>
 
-        <h3>Install mini Desktop with kex server <span class="badge bg-danger">Not Recommended</span></h3>
-        <pre>sudo apt update && sudo apt upgrade -y
+        <!-- Password Reset subsection -->
+        <div id="wsl-pass" style="padding-top:1rem">
+            <h3>13.2 Reset WSL Password 🔑</h3>
+            <p style="color:var(--muted)">Forgot your WSL user password? Use Windows CMD to reset it via root.</p>
+            <pre># Step 1 — Open Windows CMD (not PowerShell) and set distro to login as root
+ubuntu2204 config --default-user root
+# (replace ubuntu2204 with your distro name, e.g. kali-linux)
+
+# Step 2 — A root WSL shell opens automatically. Reset the password:
+passwd &lt;your-username&gt;
+# e.g.: passwd ak2001
+# Enter new password when prompted
+
+# Step 3 — Set your user back as default
+ubuntu2204 config --default-user &lt;your-username&gt;</pre>
+            <img src="img/wsl pass reset.jpg" class="img-fluid rounded mt-2" alt="WSL Password Reset">
+        </div>
+
+        <!-- Desktop ENV subsection -->
+        <div id="wsl-desktop" style="padding-top:1.5rem">
+            <h3>13.3 Install Desktop Environment</h3>
+            <h4 style="color:var(--muted);font-size:1rem">mini — kex server <span class="badge bg-danger">Not Recommended</span></h4>
+            <pre>sudo apt update && sudo apt upgrade -y
 sudo apt install kali-win-kex
 kex --win -s
 kex --esm --ip -s   # for Windows Remote Desktop</pre>
-        <div class="row my-3">
-            <div class="col-sm-6"><img src="img/wsl remote desktop connect (1).png" class="img-fluid rounded mb-2" alt="WSL RDP 1"></div>
-            <div class="col-sm-6"><img src="img/wsl remote desktop connect.png" class="img-fluid rounded mb-2" alt="WSL RDP"></div>
-        </div>
+            <div class="row my-3">
+                <div class="col-sm-6"><img src="img/wsl remote desktop connect (1).png" class="img-fluid rounded mb-2" alt="WSL RDP 1"></div>
+                <div class="col-sm-6"><img src="img/wsl remote desktop connect.png" class="img-fluid rounded mb-2" alt="WSL RDP"></div>
+            </div>
 
-        <h3>Shut Down</h3>
-        <pre>exit
+            <h4 style="color:var(--muted);font-size:1rem">Shut Down</h4>
+            <pre>exit
 wsl --shutdown</pre>
 
-        <h3>Uninstall kex</h3>
-        <pre>sudo apt purge kali-win-kex xfce4 xfce4-goodies lightdm light-locker
+            <h4 style="color:var(--muted);font-size:1rem">Uninstall kex</h4>
+            <pre>sudo apt purge kali-win-kex xfce4 xfce4-goodies lightdm light-locker
 sudo apt autoremove --purge && sudo apt clean</pre>
 
-        <h3>Install Full Desktop — GNOME <span class="badge bg-success">Recommended</span></h3>
-        <pre>sudo apt update
+            <h4 style="color:var(--muted);font-size:1rem">Full Desktop — GNOME <span class="badge bg-success">Recommended</span></h4>
+            <pre>sudo apt update
 sudo apt install kali-desktop-gnome gdm3
 sudo update-alternatives --config x-session-manager
 wsl --shutdown && wsl</pre>
 
-        <div class="mt-3">
-            <img src="img/wsl remote desktop connect (3).png" class="img-fluid rounded mb-2" alt="WSL connect 3">
-            <img src="img/kali in windows.png" class="img-fluid rounded" alt="Kali in Windows">
+            <div class="mt-3">
+                <img src="img/wsl remote desktop connect (3).png" class="img-fluid rounded mb-2" alt="WSL connect 3">
+                <img src="img/kali in windows.png" class="img-fluid rounded" alt="Kali in Windows">
+            </div>
         </div>
     </div>
 
