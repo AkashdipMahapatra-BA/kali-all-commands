@@ -147,8 +147,36 @@
         .table thead th    { background: var(--tbl-head) !important; color: #fff; border-color: var(--border); }
         .table tbody tr    { background-color: var(--surface) !important; }
         .table tbody tr:hover { background-color: var(--tbl-hover) !important; }
-        .table td, .table th  { border-color: var(--border) !important; background: transparent; }
+        .table td, .table th  { border-color: var(--border) !important; background: transparent; color: var(--text) !important; }
         .table-bordered    { border-color: var(--border) !important; }
+
+        /* ── Nav links (Ubuntu / Fedora) ── */
+        .nav-pill {
+            display: inline-block;
+            padding: .55rem 1.8rem;
+            font-size: .9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid var(--accent);
+            color: var(--accent) !important;
+            background: transparent;
+            transition: all .3s ease;
+        }
+        .nav-pill:hover {
+            background: var(--accent);
+            color: #fff !important;
+            box-shadow: 0 4px 18px rgba(209,47,47,.4);
+            transform: translateY(-2px);
+        }
+        .nav-pill.filled {
+            background: var(--accent);
+            color: #fff !important;
+        }
+        .nav-pill.filled:hover {
+            background: transparent;
+            color: var(--accent) !important;
+        }
 
         /* ── Footer ── */
         footer {
@@ -161,6 +189,22 @@
         }
         footer a   { color: var(--muted); margin: 0 .4rem; }
         footer img { width: 34px; }
+        .footer-btn {
+            display: inline-block;
+            padding: .45rem 1.4rem;
+            font-size: .8rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: #fff !important;
+            box-shadow: 0 3px 12px rgba(40,167,69,.35);
+            transition: all .3s ease;
+        }
+        .footer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40,167,69,.5);
+        }
 
         @media (max-width: 576px) {
             pre       { font-size: .78rem; }
@@ -228,12 +272,12 @@
     <!-- Quick Index -->
     <div class="index-card">
         <strong style="color:var(--accent)">📋 Quick Index</strong><br>
-        <a href="#repo">#1 Repository</a><a href="#sound">#2 No Sound</a><a href="#broken">#3 Fix Broken</a>
-        <a href="#wifi">#4 WiFi</a><a href="#bluetooth">#5 Bluetooth</a><a href="#install">#6 Install SW</a>
-        <a href="#snap">#7 Snap</a><a href="#uninstall">#8 Uninstall</a><a href="#kill">#9 Force Stop</a>
-        <a href="#software">#10 Software Table</a><a href="#delete">#11 Delete File</a>
-        <a href="#wine">#12 Wine</a>
-        <span style="color:var(--accent);font-weight:600">#13 WSL 2:</span>
+        <a href="#repo">1. Repository</a><a href="#sound">2. No Sound</a><a href="#broken">3. Fix Broken</a>
+        <a href="#wifi">4. WiFi</a><a href="#bluetooth">5. Bluetooth</a><a href="#install">6. Install SW</a>
+        <a href="#snap">7. Snap</a><a href="#uninstall">8. Uninstall</a><a href="#kill">9. Force Stop</a>
+        <a href="#software">10. Software Table</a><a href="#delete">11. Delete File</a>
+        <a href="#wine">12. Wine</a>
+        <span style="color:var(--accent);font-weight:600">13. WSL 2:</span>
         <a href="#wsl">↳ Setup</a>
         <a href="#wsl-pass">↳ Password Reset</a>
         <a href="#wsl-desktop">↳ Desktop ENV</a>
@@ -452,13 +496,9 @@ wsl --shutdown && wsl</pre>
     </div>
 
     <!-- Navigation -->
-    <div class="row my-4 g-3 text-center">
-        <div class="col-6">
-            <a href="https://akashdip2001.github.io/ubuntu-all-commaands/" class="kbtn">« Ubuntu</a>
-        </div>
-        <div class="col-6">
-            <a href="https://akashdip2001.github.io/fedora-all-imp-commands/" class="kbtn">Fedora »</a>
-        </div>
+    <div class="d-flex justify-content-between align-items-center my-4 px-2">
+        <a href="https://akashdip2001.github.io/ubuntu-all-commaands/" class="nav-pill">« Ubuntu</a>
+        <a href="https://akashdip2001.github.io/fedora-all-imp-commands/" class="nav-pill filled">Fedora »</a>
     </div>
 
 </div>
@@ -478,7 +518,7 @@ wsl --shutdown && wsl</pre>
             <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Website" style="width:36px;height:36px;border-radius:6px">
         </a>
     </div>
-    <a href="https://akashdip2001.github.io/linktree/" class="kbtn" style="line-height:36px;padding:0 1.2rem;font-size:.8rem">✔️ my Website</a>
+    <a href="https://akashdip2001.github.io/linktree/" class="footer-btn">✔️ MY WEBSITE</a>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
