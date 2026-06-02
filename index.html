@@ -64,11 +64,48 @@
             color: var(--btn-toggle-text);
             border: none;
             border-radius: 20px;
-            padding: .25rem .85rem;
+            padding: .28rem .9rem;
             font-size: .82rem;
+            font-weight: 600;
             cursor: pointer;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,.35);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
+        #themeToggle:hover { transform: scale(1.08); box-shadow: 0 4px 16px rgba(0,0,0,.45); }
+
+        /* ── btn-4 shimmer (the 2nd-last style you liked) ── */
+        .kbtn {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            padding: 0 1.4rem;
+            line-height: 40px;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff !important;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,.25);
+            background: var(--accent);
+            cursor: pointer;
+            transition: box-shadow .4s ease, letter-spacing .3s ease;
+        }
+        .kbtn::after {
+            content: "";
+            position: absolute;
+            top: -50px; left: -75px;
+            width: 50px; height: 155px;
+            background: #fff;
+            opacity: .18;
+            transform: rotate(35deg);
+            transition: left 550ms cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
+        }
+        .kbtn:hover { box-shadow: 0 4px 20px rgba(209,47,47,.55); letter-spacing: 1px; text-decoration: none; }
+        .kbtn:hover::after { left: 120%; }
 
         /* ── Sections ── */
         .section    { padding: 2rem 0; border-bottom: 1px solid var(--border); }
@@ -106,10 +143,12 @@
         .index-card a:hover { background: var(--accent); color: #fff; }
 
         /* ── Table ── */
-        .table             { color: var(--text); font-size: .83rem; }
-        .table thead       { background: var(--tbl-head); color: #fff; }
-        .table tbody tr:hover { background: var(--tbl-hover); }
-        .table td, .table th { border-color: var(--border); }
+        .table             { color: var(--text); font-size: .83rem; --bs-table-bg: transparent; --bs-table-striped-bg: transparent; --bs-table-hover-bg: var(--tbl-hover); }
+        .table thead th    { background: var(--tbl-head) !important; color: #fff; border-color: var(--border); }
+        .table tbody tr    { background-color: var(--surface) !important; }
+        .table tbody tr:hover { background-color: var(--tbl-hover) !important; }
+        .table td, .table th  { border-color: var(--border) !important; background: transparent; }
+        .table-bordered    { border-color: var(--border) !important; }
 
         /* ── Footer ── */
         footer {
@@ -194,14 +233,14 @@
         <h2>#1 Add Kali Repository</h2>
         <p>Just copy &amp; paste into your Terminal — Done ✔️</p>
         <pre>echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list</pre>
-        <a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/" target="_blank">Official Website →</a>
+        <a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/" target="_blank" class="kbtn mt-2">Official Website →</a>
     </div>
 
     <!-- #2 No Sound -->
     <div class="section" id="sound">
         <h2>#2 No Sound on Kali</h2>
         <pre>sudo apt purge --autoremove pipewire-pulse</pre>
-        <a href="https://www.kali.org/docs/troubleshooting/no-sound/" target="_blank">Official Website →</a>
+        <a href="https://www.kali.org/docs/troubleshooting/no-sound/" target="_blank" class="kbtn mt-2">Official Website →</a>
     </div>
 
     <!-- #3 Fix Broken -->
@@ -229,7 +268,7 @@ sudo systemctl status systemd-resolved.service</pre>
         <h2>#6 Install Software in KALI Linux</h2>
         <pre>sudo dpkg -i *.deb                 # normal .deb file
 ./configure  ---  make install     # compile from source</pre>
-        <a href="https://youtu.be/fDod27oOZCM" target="_blank">How to install all types of software in KALI →</a>
+        <a href="https://youtu.be/fDod27oOZCM" target="_blank" class="kbtn mt-2">How to install →</a>
     </div>
 
     <!-- #7 Snap -->
@@ -241,7 +280,7 @@ sudo apt install snapd
 systemctl enable --now snapd apparmor</pre>
         <p style="color:var(--muted)">Snap installed but not working?</p>
         <pre>systemctl enable --now snapd.apparmor</pre>
-        <a href="https://youtu.be/P_qg4ujwypE" target="_blank">How to install Snap Store in KALI →</a>
+        <a href="https://youtu.be/P_qg4ujwypE" target="_blank" class="kbtn mt-2">Snap Store guide →</a>
     </div>
 
     <!-- #8 Uninstall -->
@@ -265,7 +304,7 @@ kill -9 [PID]</pre>
     <!-- #10 Software Table -->
     <div class="section" id="software">
         <h2>#10 All Important Software in KALI</h2>
-        <p><a href="https://www.kali.org/tools/all-tools/" target="_blank">All Kali Tools →</a></p>
+        <p><a href="https://www.kali.org/tools/all-tools/" target="_blank" class="kbtn" style="line-height:36px">All Kali Tools →</a></p>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
@@ -380,12 +419,12 @@ wsl --shutdown && wsl</pre>
     </div>
 
     <!-- Navigation -->
-    <div class="row my-4">
+    <div class="row my-4 g-3 text-center">
         <div class="col-6">
-            <a href="https://akashdip2001.github.io/ubuntu-all-commaands/" class="btn btn-outline-secondary w-100">« Ubuntu</a>
+            <a href="https://akashdip2001.github.io/ubuntu-all-commaands/" class="kbtn">« Ubuntu</a>
         </div>
         <div class="col-6">
-            <a href="https://akashdip2001.github.io/fedora-all-imp-commands/" class="btn btn-outline-secondary w-100">Fedora »</a>
+            <a href="https://akashdip2001.github.io/fedora-all-imp-commands/" class="kbtn">Fedora »</a>
         </div>
     </div>
 
