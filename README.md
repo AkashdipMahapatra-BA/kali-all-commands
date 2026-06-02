@@ -204,8 +204,8 @@ ls
 ┌──(whitedevil㉿akashdip2001)-[/mnt/c/Users/akash/Desktop]
 └─$
 ```
-| [WSL more, ](./wsl-in-windows.md) | [file permissions](./permissions.md) |
-| --- | --- |
+| [WSL more details](./wsl-in-windows.md) | [File Permissions (quick)](./permissions.md) | [File Permissions (deep dive)](https://github.com/akashdip2001/linux-all-commands/blob/main/00%20Linux%20File%20Permission.md) |
+| --- | --- | --- |
 
 <img src="img/wsl remote desktop connect (3).png">
 <img src="img/kali in windows.png">
@@ -306,9 +306,9 @@ wsl
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
-
-<a href="https://linkedin.com/in/akashdip-mahapatra-330687204" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81384987/209952833-314ab313-7120-4755-b65c-b573098387b3.png" alt="akashdip-mahapatra-330687204" height="40" width="40" /></a>
-<a href="https://www.youtube.com/c/akash aot" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81384987/209952974-0163b04e-ccae-4be5-844a-075ef85c43d2.png" alt="akash aot" height="35" width="50" /></a>
-<a href="https://akashdip2001.github.io/linktree/" target="blank"><img align="center" src="https://yt3.ggpht.com/7tPHyFi7-QyTnhpc484ZzTuRp0fZSY-CUuykvzuKdKYIwt0fmw98SWMqwRy_7pZ6LQzEYJlvXA=s88-c-k-c0x00ffffff-no-rj-mo" alt="akashdip2001" height="40" width="40" /></a>
-
+<a href="https://linkedin.com/in/akashdip-mahapatra-330687204" target="blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" height="40" width="40" /></a>
+&nbsp;&nbsp;
+<a href="https://www.youtube.com/c/akashaot" target="blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" height="40" width="40" /></a>
+&nbsp;&nbsp;
+<a href="https://akashdip2001.github.io/linktree/" target="blank"><img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Website" height="40" width="40" /></a>
 </p>

@@ -1,101 +1,92 @@
-# File permissions
+# 🔐 Linux File Permissions — Quick Reference
 
-To list all files (including hidden ones) along with their permissions, you can use the `-la` option with the `ls` command. The `-l` option provides detailed information, including permissions, while the `-a` option ensures hidden files are shown.
+> ⚡ Quick help for everyday permission tasks.  
+> 📘 Need a deep dive? → [**Linux File Permissions — Full Guide**](https://github.com/akashdip2001/linux-all-commands/blob/main/00%20Linux%20File%20Permission.md)
 
-Here’s the command:
+---
+
+## List Files with Permissions
 
 ```bash
 ls -la /mnt/c/Users/akash/Desktop
 ```
 
-This will show:
-
-- File permissions
-- Number of links
-- Owner
-- Group
-- File size
-- Date of last modification
-- File/directory names (including hidden ones)
+This shows: permissions · links · owner · group · size · date · name
 
 ---
 
-To change the permissions of all files and directories in a directory (e.g., the Desktop) in a structured way, we can create a table using `chmod` to adjust permissions. In Linux, file permissions are represented by three sets of users: the owner, the group, and others. Permissions can be set using symbolic or numeric modes.
+## Understanding Permission Format
 
-### Understanding File Permissions
-In a table format, permissions are displayed as three characters:
-- `r` = read
-- `w` = write
-- `x` = execute
-- `-` = no permission
-
-The permissions for a file or directory are shown as:
 ```
 rwxr-xr-x
-```
-This means:
-- `rwx` for the owner (read, write, execute)
-- `r-x` for the group (read, execute)
-- `r-x` for others (read, execute)
-
-### Numeric Mode for Permissions
-Permissions can be represented by a number:
-- `r = 4`
-- `w = 2`
-- `x = 1`
-- `- = 0`
-
-So the numeric values for the permissions above would be:
-```
-rwxr-xr-x = 755
+│││ │││ │││
+│││ │││ └── Others: read + execute
+│││ └───── Group:  read + execute
+└──────── Owner:  read + write + execute
 ```
 
-### Table to Change Permissions
-
-Here's a simple table that shows how to change permissions using both symbolic and numeric modes.
-
-| Permissions | Numeric Value | Symbolic Command        | Description                                            |
-|-------------|---------------|-------------------------|--------------------------------------------------------|
-| **Read-Write-Execute**  | 777           | `chmod 777 <file>`        | Full permissions for owner, group, and others           |
-| **Read-Write-Execute (Owner), Read-Execute (Group & Others)** | 755           | `chmod 755 <file>`        | Common for executable files or directories              |
-| **Read-Write (Owner), Read (Group & Others)** | 644           | `chmod 644 <file>`        | Common for text files (owner can modify, others can read) |
-| **Read-Execute (Owner), Execute (Group & Others)** | 555           | `chmod 555 <file>`        | Owner can read and execute, others can only execute     |
-| **Read-Execute (Owner), No permissions for Group/Others** | 500           | `chmod 500 <file>`        | Owner can read and execute, others have no access       |
-| **No permissions for anyone** | 000           | `chmod 000 <file>`        | No permissions at all                                  |
-| **Read-Write (Owner), No permissions for Group/Others** | 600           | `chmod 600 <file>`        | Owner can read and write, others have no access         |
-
-### Example Commands for Changing Permissions
-
-- To give full permissions to everyone for a file:
-  ```bash
-  chmod 777 /mnt/c/Users/akash/Desktop/yourfile
-  ```
-
-- To make all files in the Desktop folder readable and executable by everyone, but writable only by the owner:
-  ```bash
-  chmod 755 /mnt/c/Users/akash/Desktop/*
-  ```
-
-- To change permissions for all files and directories on your Desktop to `644` (read/write for the owner, read-only for everyone else):
-  ```bash
-  chmod 644 /mnt/c/Users/akash/Desktop/*
-  ```
-
-- To change all directories on your Desktop to `755` (execute permission for directories to allow navigation):
-  ```bash
-  find /mnt/c/Users/akash/Desktop -type d -exec chmod 755 {} \;
-  ```
-
-- To change all files on your Desktop to `644` (read/write for the owner, read-only for others):
-  ```bash
-  find /mnt/c/Users/akash/Desktop -type f -exec chmod 644 {} \;
-  ```
-
-### Recap
-
-You can adjust permissions according to the numeric values or symbolic modes based on your needs. The `chmod` command is flexible, and you can apply it to individual files or use `find` to apply changes recursively.
+| Symbol | Meaning | Value |
+|--------|---------|-------|
+| `r` | Read | 4 |
+| `w` | Write | 2 |
+| `x` | Execute | 1 |
+| `-` | None | 0 |
 
 ---
 
-| [all commands](./README.md) |
+## Common Permission Combos
+
+| Numeric | Symbolic | Use Case |
+|---------|----------|----------|
+| `777` | `rwxrwxrwx` | Full access for everyone (⚠️ use carefully) |
+| `755` | `rwxr-xr-x` | Executable files & directories |
+| `644` | `rw-r--r--` | Text/config files |
+| `600` | `rw-------` | Private files (SSH keys, etc.) |
+| `500` | `r-x------` | Read+execute for owner only |
+| `000` | `---------` | No access at all |
+
+---
+
+## Quick Commands
+
+```bash
+# Full permissions for everyone
+chmod 777 filename
+
+# Standard directory permissions
+chmod 755 /mnt/c/Users/akash/Desktop/*
+
+# Standard file permissions
+chmod 644 /mnt/c/Users/akash/Desktop/*
+
+# Recursive — all directories to 755
+find /path -type d -exec chmod 755 {} \;
+
+# Recursive — all files to 644
+find /path -type f -exec chmod 644 {} \;
+```
+
+---
+
+## Change Ownership
+
+```bash
+# Change owner
+sudo chown username filename
+
+# Change owner + group
+sudo chown username:groupname filename
+
+# Recursive
+sudo chown -R username:groupname /path/to/dir
+```
+
+---
+
+> 📘 **Want to learn more?** Check the full detailed guide:  
+> [Linux File Permissions — Complete Reference](https://github.com/akashdip2001/linux-all-commands/blob/main/00%20Linux%20File%20Permission.md)
+
+---
+
+| ← [Back to All Commands](./README.md) |
 | --- |
